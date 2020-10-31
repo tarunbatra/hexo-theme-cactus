@@ -29,7 +29,7 @@ A responsive, clean and simple [Hexo](http://hexo.io) theme for a personal websi
 - Projects list
 - I18n support
 - Disqus integration
-- Google analytics / Baidu Tongji
+- Google analytics / Baidu Tongji / [Umami Analytics](https://umami.is) 
 - Font Awesome icons
 - Simplicity
 
@@ -110,10 +110,10 @@ Setup the navigation menu in the `_config.yml`:
 
 ```yml
 nav:
-  Home: /
-  About: /about/
-  Writing: /archives/
-  Projects: http://github.com/probberechts
+  home: /
+  about: /about/
+  articles: /archives/
+  projects: http://github.com/probberechts
   LINK_NAME: URL
 ```
 
@@ -243,6 +243,11 @@ google_analytics:
 baidu_analytics:
   enabled: true
   id: 2e6da3c375c8a87f5b664cea6d4cb29c
+
+umami_analytics:
+  enabled: false
+  id: e77e68be-f6e4-4br3-9365-2b76b57cd571
+  host: https://analytics.domain.com
 ```
 
 
@@ -306,8 +311,8 @@ Finally, don't forget to create a link to these pages, for example in the naviga
 
 ```yml
 nav:
-  tags: /tags/
-  categories: /categories/
+  tag: /tags/
+  category: /categories/
 ```
 
 
