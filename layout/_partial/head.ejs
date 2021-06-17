@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <%- open_graph({
         image:          thumbnail(page),
         fb_app_id:      theme.open_graph.fb_app_id,
@@ -52,7 +52,7 @@
     <!-- styles -->
     <%- css('css/style') %>
     <!-- persian styles -->
-    <% if (theme.direction) { %>
+    <% if (theme.direction && theme.direction === 'rtl') { %>
       <%- css('css/rtl') %>
     <% } %>
     <!-- rss -->
@@ -63,4 +63,16 @@
       <link rel="alternate" href="<%= url_for(theme.rss) %>" title="<%= config.title %>" type="application/atom+xml" />
     <% } %>
     <%- canonicalLink(config, page) %>
+	<!-- mathjax -->
+	<% if (theme.mathjax.enabled) {%>
+		<script type="text/x-mathjax-config">
+		  MathJax.Hub.Config({
+			tex2jax: {
+			  skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+			  inlineMath: [['$','$']]
+			}
+		  });
+		</script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+	<% } %>
 </head>
